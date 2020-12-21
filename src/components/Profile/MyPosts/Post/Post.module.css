@@ -1,0 +1,20 @@
+
+
+.item {
+    color: #a52a2a;
+    font-size: 20px;
+    margin: 10px 10px;
+    
+}
+.avatar {
+    width: 50px;
+    height:50px;
+    border:2px solid rgb(8, 69, 119);
+    border-radius: 25px;
+}
+
+.like {
+    color:darkblue;
+    font-weight: bold;
+    font-size: 15px;
+}
