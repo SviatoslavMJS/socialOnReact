@@ -3,5 +3,14 @@
     font-size: 22px;
     color: white;
     background-color: rgb(9, 148, 95);
+    padding: 20px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.activeLink {
+    color: gold;
 }
 
