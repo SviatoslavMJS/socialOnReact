@@ -1,24 +1,27 @@
 
+import DialogItem from "./DialogItem/DialogItem";
 import s from "./Dialogs.module.css"
+import Message from "./Message/Message";
 
-const Dialogs = () => {
-    return (
+
+
+const Dialogs = (props) => {
+
+    
+    let dialogsElements = props.state.dialogsPage.dialogs.map(elem => <DialogItem name={elem.name} id={elem.id} />);
+
+    let messagesElements = props.state.dialogsPage.messages.map(m => <Message message={m.message} />);
+
+      return (
+    
     <div className={s.dialogs}>
     
         <div className={s.dialogsItems}>
-            <div className={s.dialog}>Dmytry</div>
-            <div className={s.dialog +" "+ s.active}>Victoria</div>
-            <div className={s.dialog}>Yevgeny</div>
-            <div className={s.dialog}>Vladimir</div>
-            <div className={s.dialog}>Vladilen</div>
-            <div className={s.dialog}>Olga</div>
+            { dialogsElements }
         </div>
 
         <div className={s.dialogsMessages}>
-        
-            <div className={s.message}>Hello!</div>
-            <div className={s.message}>How are you?</div>
-            <div className={s.message}>Very good!</div>
+            { messagesElements }
         </div>
     </div>
     )
