@@ -4,7 +4,7 @@ const Header = () => {
 
 return (
 <header className={s.header}>
-<img src="https://f.hubspotusercontent00.net/hubfs/53/1200px-WWF_logo_svg%20(1).png"></img>
+<img src="https://f.hubspotusercontent00.net/hubfs/53/1200px-WWF_logo_svg%20(1).png" alt="img"></img>
 </header>
 )
 }

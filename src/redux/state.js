@@ -1,6 +1,15 @@
-import { renderEntireTree } from "../render";
+import dialogsReducer from "./dialogs-reducer";
+import profileReducer from "./profile-reducer";
 
-let state = {
+const SEND_MESSAGE = "SEND_MESSAGE";
+const UPDATE_NEW_MESSAGE_TEXT = "UPDATE_NEW_MESSAGE_TEXT";
+const ADD_POST = "ADD-POST";
+const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
+
+
+
+let store = {
+_state: {
     dialogsPage:{
 
      dialogs: [
@@ -19,7 +28,9 @@ let state = {
       {id: 4, message: "Yo"},
       {id: 5, message: "No"},
       {id: 6, message: "No"}
-    ]
+    ],
+
+    newMessage: "",
   },
   
     profilePage: {
@@ -29,21 +40,65 @@ let state = {
       {message: "Hi, it's my first project!", count: 23},
       {message: "Hello", count: 6},
       {message: " you?", count: 9},
-    ] 
+    ],
+
+    newPostText: "",
   }
+ },
+
+  _renderEntireTree () {console.log("RERENDER!!!")},
+
+  getState() {
+    return this._state;
+  },
   
-  };
+  dispatch (action) {
 
-  export let addPost = (postMessage) => {
-     let newPost = {
-       id: 5,
-       message: postMessage,
-       count: 0
-     };
+    this._state.profilePage = profileReducer(this._state.profilePage, action);
+    this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
+    this._renderEntireTree(this._state);
+  },
 
-     state.profilePage.posts.push(newPost);
-    
-     renderEntireTree(state);
+ subscribe (observer) {
+        this._renderEntireTree = observer;
+    }
+};
+
+export let addPostActionCreator = () => {
+  return {
+    type: ADD_POST
   }
+}; 
 
-  export default state;
+export let updateNewPostTextActionCreator = (newText) => {
+  return {
+    type: UPDATE_NEW_POST_TEXT, 
+    newText: newText
+  }
+};
+
+export let updateNewMessageTextCreator = (newText) => {
+  return {
+    type: UPDATE_NEW_MESSAGE_TEXT,
+    newText: newText
+  }
+};
+
+export let sendMessageCreator = () => {
+  return {
+    type: SEND_MESSAGE
+  }
+};
+ 
+
+  window.state = store.getState();
+
+  export default store;
+
+   
+
+   
+
+
+
+  
