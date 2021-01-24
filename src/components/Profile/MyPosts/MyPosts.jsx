@@ -13,13 +13,11 @@ const MyPosts = (props) => {
 
   let addPost = () => {
     props.addPost();
-   //props.dispatch(addPostActionCreator());
   }
 
   let updateNewPostText = () => {
     let newText = txtareaElement.current.value;
     props.updateNewPostText(newText);
-    //props.dispatch(updateNewPostTextActionCreator(newText))
   }
 
     return (
