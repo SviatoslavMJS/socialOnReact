@@ -9,6 +9,7 @@ return (
 <div><NavLink to="/news" activeClassName={s.activeLink}>News</NavLink></div>
 <div><NavLink to="/music" activeClassName={s.activeLink}>Music</NavLink></div>
 <div><NavLink to="/settings" activeClassName={s.activeLink}>Settings</NavLink></div>
+<div><NavLink to="/users" activeClassName={s.activeLink}>Find Users</NavLink></div>
 </nav>)
 }
 
