@@ -7,3 +7,8 @@ img {
 .user {
     padding: 20px;
 }
+
+.status {
+    font-size: xx-large;
+    color: blue;
+}

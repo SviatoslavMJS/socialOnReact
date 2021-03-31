@@ -13,4 +13,6 @@ let reducers = combineReducers({
 
 let store = createStore(reducers);
 
+console.dir(store.getState)
+
 export default store;
